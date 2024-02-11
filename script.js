@@ -55,6 +55,7 @@ function generatePassword() {
 
   //the password is declared as "" to indicate that it is an empty string with no characters, this is done so that it holds a string value which will then be defined by the var password = generatePassword(); further down
   var password = ""
+  //below is a for loop, i will continue to increment by 1 (i++) while it is less than passwordLength
   for (var i = 0; i < passwordLength; i++) {
     randomIndex = Math.floor(Math.random() * selection.length);
     password += selection[randomIndex];
