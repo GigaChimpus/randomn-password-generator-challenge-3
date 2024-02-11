@@ -3,42 +3,51 @@ var generateBtn = document.querySelector("#generate");
 
 var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 var lowerCase = "abcdefghijklmnopqrstuvwxyz"
-var numerics = "123456789"
+var numbers = "123456789"
 var special = "!\"#$%&'()*+,-./:;<=>?@[]^_`{}|~"
 
 function generatePassword() {
 
   var passwordLength = window.prompt("Choose a number no less than 8 and no greater than 128");
+  console.log("user has been prompted for password length")
 
   if (passwordLength < 8 || passwordLength > 128) {
-    window.alert("This will not suffice.")
+    window.alert("The number you have entered is outside of the possible range.")
+    console.log("user has not entered a valid number")
     return
   }
-  
-  var selection = ""
-  var addLowercase = window.confirm("Add lowercase characters?");
-  var addUppserCase = window.confirm("Add uppercase characters?");
-  var addNumerics = window.confirm("Add nurmeric characters?");
-  var addSpecials = window.confirm("Add special characters?");
 
-  if (addLowercase) {
-    selection += lowerCase  
-  }
-  
+  else console.log("user has entered password length")
+
+  var addUppserCase = window.confirm("Add uppercase characters to your password?");
+  var addLowerCase = window.confirm("Add lowercase characters to your password?");
+  var addNumbers = window.confirm("Add numbers to your password?");
+  var addSpecials = window.confirm("Add special characters to your password?");
+  var selection = ""
+
   if (addUppserCase) {
     selection += upperCase
+    console.log("user has added uppercase letters to his password")
   }
 
-  if (addNumerics) {
-    selection += numerics
+  if (addLowerCase) {
+    selection += lowerCase
+    console.log("user has added lowercase letters to his password")
+  }
+  
+  if (addNumbers) {
+    selection += numbers
+    console.log("user has added numbers to his password")
   }
 
   if (addSpecials) {
     selection += special
+    console.log("user has added special characters to his password")
   }
 
   if (selection === "") {
-    window.alert("This will not suffice.")
+    window.alert("You must choose at least one criteria.")
+    console.log("user has decided to be difficult")
     return 
   }
 
@@ -48,7 +57,7 @@ function generatePassword() {
     password += selection[randomIndex];
   }
   
-  console.log("password generation entering final stages")
+  console.log("password generation complete, return result")
 
   return password
 }
