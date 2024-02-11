@@ -53,7 +53,7 @@ function generatePassword() {
     return 
   }
 
-  //the password is declared as "" so that the following for statement can overwrite it
+  //the password is declared as "" to indicate that it is an empty string with no characters, this is done so that it holds a string value which will then be defined by the var password = generatePassword(); further down
   var password = ""
   for (var i = 0; i < passwordLength; i++) {
     randomIndex = Math.floor(Math.random() * selection.length);
