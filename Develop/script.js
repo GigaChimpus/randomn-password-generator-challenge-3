@@ -11,6 +11,7 @@ function generatePassword() {
   var passwordLength = window.prompt("Choose a number no less than 8 and no greater than 128");
   console.log("user has been prompted for password length")
 
+  //if password length falls outside of the parameters stated below, user will be prompted with a message that they have entered an invalid number
   if (passwordLength < 8 || passwordLength > 128) {
     window.alert("The number you have entered is outside of the possible range.")
     console.log("user has not entered a valid number")
@@ -25,6 +26,7 @@ function generatePassword() {
   var addSpecials = window.confirm("Add special characters to your password?");
   var selection = ""
 
+  //the following if statements will apply only if true, to be true the user must press confirm on his prompt otherwise the statements will be false. If false the the selection will not be added.
   if (addUppserCase) {
     selection += upperCase
     console.log("user has added uppercase letters to his password")
@@ -51,6 +53,7 @@ function generatePassword() {
     return 
   }
 
+  //the password is declared as "" so that the following for statement can overwrite it
   var password = ""
   for (var i = 0; i < passwordLength; i++) {
     randomIndex = Math.floor(Math.random() * selection.length);
